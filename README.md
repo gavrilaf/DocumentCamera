@@ -22,13 +22,7 @@ pod "DocumentCamera"
 
 ## Author
 
-gavrilaf, eugene.fedchenko@wirexapp.com
-eugene.fedchenko@wirexapp.com
-eugene.fedchenko@wirexapp.com
-eugene.fedchenko@wirexapp.com
-eugene.fedchenko@wirexapp.com
-eugene.fedchenko@wirexapp.com
-eugene.fedchenko@wirexapp.com
+gavrilaf
 
 ## License
 
