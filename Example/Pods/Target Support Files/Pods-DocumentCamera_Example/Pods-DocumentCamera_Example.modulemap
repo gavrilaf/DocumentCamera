@@ -1,0 +1,6 @@
+framework module Pods_DocumentCamera_Example {
+  umbrella header "Pods-DocumentCamera_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

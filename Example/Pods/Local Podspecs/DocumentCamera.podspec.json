@@ -1,0 +1,22 @@
+{
+  "name": "DocumentCamera",
+  "version": "0.1.0",
+  "summary": "A short description of DocumentCamera.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/gavrilaf/DocumentCamera",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "gavrilaf": "eugene.fedchenko@wirexapp.com\neugene.fedchenko@wirexapp.com\neugene.fedchenko@wirexapp.com\neugene.fedchenko@wirexapp.com\neugene.fedchenko@wirexapp.com\neugene.fedchenko@wirexapp.com\neugene.fedchenko@wirexapp.com"
+  },
+  "source": {
+    "git": "https://github.com/gavrilaf/DocumentCamera.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "DocumentCamera/Classes/**/*"
+}

@@ -1,0 +1,6 @@
+framework module DocumentCamera {
+  umbrella header "DocumentCamera-umbrella.h"
+
+  export *
+  module * { export * }
+}

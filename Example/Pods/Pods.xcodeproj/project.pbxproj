@@ -1,0 +1,642 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		08CB1FB32DA0CB0FC1EFE0CE0C089358 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		1189B6295AEBA265B1909F217D2693FD /* DocumentCamera-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A1D7492BF68B876622C6980FD56FF18 /* DocumentCamera-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		28F9E5F80CF9CDE8CF60D08DB8048409 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		46423DEA1F0E911000BD5E1C /* DocumentCameraDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46423DE91F0E911000BD5E1C /* DocumentCameraDelegate.swift */; };
+		4677313E1F0E773D006DA238 /* DocumentCameraFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467731351F0E773D006DA238 /* DocumentCameraFactory.swift */; };
+		4677313F1F0E773D006DA238 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467731371F0E773D006DA238 /* Camera.swift */; };
+		467731411F0E773D006DA238 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467731391F0E773D006DA238 /* PreviewView.swift */; };
+		467731431F0E773D006DA238 /* ShutterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4677313B1F0E773D006DA238 /* ShutterButton.swift */; };
+		467731441F0E773D006DA238 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4677313C1F0E773D006DA238 /* CameraViewController.swift */; };
+		467731451F0E773D006DA238 /* DocumentCamera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4677313D1F0E773D006DA238 /* DocumentCamera.storyboard */; };
+		6C7A663AE97BE72F1A3A4101C282FA38 /* Pods-DocumentCamera_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 104DE138E8CB71C7A7F8BBC6D993438C /* Pods-DocumentCamera_Example-dummy.m */; };
+		76A0C6C18B174E9AB7BB8ECF134482B3 /* Pods-DocumentCamera_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8432D5D39938922F3C8AA358B1EBF91C /* Pods-DocumentCamera_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9C9570F3CDEF134D900C8BCBDD0BCA72 /* DocumentCamera-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBF5ABF1121761759C01DE40A27A49B /* DocumentCamera-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A3E1EDCF21484E2935A9798497AE17C3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A558CD63579B6107C537854135201284;
+			remoteInfo = DocumentCamera;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0405828F95CBE24F885E921E5B551B55 /* Pods_DocumentCamera_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DocumentCamera_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		104DE138E8CB71C7A7F8BBC6D993438C /* Pods-DocumentCamera_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DocumentCamera_Example-dummy.m"; sourceTree = "<group>"; };
+		105E627562EFE8FA6BD19940324A437D /* Pods-DocumentCamera_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DocumentCamera_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		1C92C2BB179FBF7E3C5CC4FE4A9B45CE /* Pods-DocumentCamera_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DocumentCamera_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		1F81561DFBDD903FEE7CE7287DA4C8EB /* Pods-DocumentCamera_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DocumentCamera_Tests-resources.sh"; sourceTree = "<group>"; };
+		2A1D7492BF68B876622C6980FD56FF18 /* DocumentCamera-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DocumentCamera-umbrella.h"; sourceTree = "<group>"; };
+		2E263BF5E9300C848507C0570B8C2508 /* Pods-DocumentCamera_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-DocumentCamera_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		2FFE24BF376A65350267D64DAAFCAC12 /* Pods-DocumentCamera_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DocumentCamera_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		413AC48935722F874362A9A2BDAB2BF3 /* Pods-DocumentCamera_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DocumentCamera_Tests-frameworks.sh"; sourceTree = "<group>"; };
+		42550C8CD2402EF6641C62B0ECC4D9F0 /* DocumentCamera.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = DocumentCamera.modulemap; sourceTree = "<group>"; };
+		44199459C29434F0C3272933C23F1064 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		46423DE91F0E911000BD5E1C /* DocumentCameraDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DocumentCameraDelegate.swift; path = DocumentCamera/Classes/DocumentCameraDelegate.swift; sourceTree = "<group>"; };
+		467731351F0E773D006DA238 /* DocumentCameraFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DocumentCameraFactory.swift; path = DocumentCamera/Classes/DocumentCameraFactory.swift; sourceTree = "<group>"; };
+		467731371F0E773D006DA238 /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		467731391F0E773D006DA238 /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
+		4677313B1F0E773D006DA238 /* ShutterButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShutterButton.swift; sourceTree = "<group>"; };
+		4677313C1F0E773D006DA238 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		4677313D1F0E773D006DA238 /* DocumentCamera.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DocumentCamera.storyboard; sourceTree = "<group>"; };
+		47F22D254BC990D7DFC3645CB96C9BF0 /* Pods-DocumentCamera_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-DocumentCamera_Example.modulemap"; sourceTree = "<group>"; };
+		50F5519EB8676F8BB779FE93DCE1F9D4 /* Pods-DocumentCamera_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DocumentCamera_Example-frameworks.sh"; sourceTree = "<group>"; };
+		51A823DC0B712CE79F97F03E11F73B29 /* DocumentCamera.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DocumentCamera.xcconfig; sourceTree = "<group>"; };
+		60E5C5B1DF39F217DBE5259761568E6E /* DocumentCamera-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DocumentCamera-prefix.pch"; sourceTree = "<group>"; };
+		626CB310DC655E824A7BE83202315A12 /* Pods-DocumentCamera_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DocumentCamera_Example-resources.sh"; sourceTree = "<group>"; };
+		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		6FBF5ABF1121761759C01DE40A27A49B /* DocumentCamera-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DocumentCamera-dummy.m"; sourceTree = "<group>"; };
+		7506BEA1EC36ABFF4A2C00B203F333B0 /* Pods-DocumentCamera_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-DocumentCamera_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		81EB0A495139796DDE53F3AF2FD01BEF /* Pods-DocumentCamera_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DocumentCamera_Example.release.xcconfig"; sourceTree = "<group>"; };
+		83436B3FC4785C671FC42CD95007C76A /* DocumentCamera.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DocumentCamera.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8432D5D39938922F3C8AA358B1EBF91C /* Pods-DocumentCamera_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DocumentCamera_Example-umbrella.h"; sourceTree = "<group>"; };
+		8A48775DF449D1FADA3B091BFA66E938 /* Pods-DocumentCamera_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DocumentCamera_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A1A62E64C64B169489A3D1711BF2ADCD /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A35128180FD3FF118E2D93CC82CBBEB5 /* Pods-DocumentCamera_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-DocumentCamera_Tests.modulemap"; sourceTree = "<group>"; };
+		B4412C52D27973AD9281950A1E8F10C9 /* Pods-DocumentCamera_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DocumentCamera_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		B9B67F82DDF0715623817CA7CDF56203 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6CC4FBA79FF0AA7E5B45586CE119B03 /* Pods-DocumentCamera_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DocumentCamera_Tests-dummy.m"; sourceTree = "<group>"; };
+		E30ACB6905A0CC9B44A8BC6D3FCBB23F /* Pods-DocumentCamera_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DocumentCamera_Tests-umbrella.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1C65C0E5C16BBD5137E00557A4E4B985 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08CB1FB32DA0CB0FC1EFE0CE0C089358 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74626F2003F418E9961549D556AC5EF2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28F9E5F80CF9CDE8CF60D08DB8048409 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0D1D51C66750F1A0165E46DF50DA24CC /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				42550C8CD2402EF6641C62B0ECC4D9F0 /* DocumentCamera.modulemap */,
+				51A823DC0B712CE79F97F03E11F73B29 /* DocumentCamera.xcconfig */,
+				6FBF5ABF1121761759C01DE40A27A49B /* DocumentCamera-dummy.m */,
+				60E5C5B1DF39F217DBE5259761568E6E /* DocumentCamera-prefix.pch */,
+				2A1D7492BF68B876622C6980FD56FF18 /* DocumentCamera-umbrella.h */,
+				B9B67F82DDF0715623817CA7CDF56203 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/DocumentCamera";
+			sourceTree = "<group>";
+		};
+		0E1C149DEE2F62D3D25523AA494D15D4 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7C889B109F76B86D89FF44B6E0B86047 /* DocumentCamera */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		467731341F0E772B006DA238 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				46423DE91F0E911000BD5E1C /* DocumentCameraDelegate.swift */,
+				467731351F0E773D006DA238 /* DocumentCameraFactory.swift */,
+				467731361F0E773D006DA238 /* Impl */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		467731361F0E773D006DA238 /* Impl */ = {
+			isa = PBXGroup;
+			children = (
+				467731371F0E773D006DA238 /* Camera.swift */,
+				467731391F0E773D006DA238 /* PreviewView.swift */,
+				4677313B1F0E773D006DA238 /* ShutterButton.swift */,
+				4677313C1F0E773D006DA238 /* CameraViewController.swift */,
+				4677313D1F0E773D006DA238 /* DocumentCamera.storyboard */,
+			);
+			name = Impl;
+			path = DocumentCamera/Classes/Impl;
+			sourceTree = "<group>";
+		};
+		515B85DCD19F7B0308CEE1BDB43F996C /* Pods-DocumentCamera_Example */ = {
+			isa = PBXGroup;
+			children = (
+				44199459C29434F0C3272933C23F1064 /* Info.plist */,
+				47F22D254BC990D7DFC3645CB96C9BF0 /* Pods-DocumentCamera_Example.modulemap */,
+				2E263BF5E9300C848507C0570B8C2508 /* Pods-DocumentCamera_Example-acknowledgements.markdown */,
+				B4412C52D27973AD9281950A1E8F10C9 /* Pods-DocumentCamera_Example-acknowledgements.plist */,
+				104DE138E8CB71C7A7F8BBC6D993438C /* Pods-DocumentCamera_Example-dummy.m */,
+				50F5519EB8676F8BB779FE93DCE1F9D4 /* Pods-DocumentCamera_Example-frameworks.sh */,
+				626CB310DC655E824A7BE83202315A12 /* Pods-DocumentCamera_Example-resources.sh */,
+				8432D5D39938922F3C8AA358B1EBF91C /* Pods-DocumentCamera_Example-umbrella.h */,
+				105E627562EFE8FA6BD19940324A437D /* Pods-DocumentCamera_Example.debug.xcconfig */,
+				81EB0A495139796DDE53F3AF2FD01BEF /* Pods-DocumentCamera_Example.release.xcconfig */,
+			);
+			name = "Pods-DocumentCamera_Example";
+			path = "Target Support Files/Pods-DocumentCamera_Example";
+			sourceTree = "<group>";
+		};
+		7C889B109F76B86D89FF44B6E0B86047 /* DocumentCamera */ = {
+			isa = PBXGroup;
+			children = (
+				467731341F0E772B006DA238 /* Classes */,
+				0D1D51C66750F1A0165E46DF50DA24CC /* Support Files */,
+			);
+			name = DocumentCamera;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				0E1C149DEE2F62D3D25523AA494D15D4 /* Development Pods */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				AF2E544DECE67D4F3C55703D46FEC05A /* Products */,
+				A437085B8371654F0AE754110E21F2EC /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		90EA7190DFCFB9D4CD2491218607710A /* Pods-DocumentCamera_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				A1A62E64C64B169489A3D1711BF2ADCD /* Info.plist */,
+				A35128180FD3FF118E2D93CC82CBBEB5 /* Pods-DocumentCamera_Tests.modulemap */,
+				7506BEA1EC36ABFF4A2C00B203F333B0 /* Pods-DocumentCamera_Tests-acknowledgements.markdown */,
+				1C92C2BB179FBF7E3C5CC4FE4A9B45CE /* Pods-DocumentCamera_Tests-acknowledgements.plist */,
+				C6CC4FBA79FF0AA7E5B45586CE119B03 /* Pods-DocumentCamera_Tests-dummy.m */,
+				413AC48935722F874362A9A2BDAB2BF3 /* Pods-DocumentCamera_Tests-frameworks.sh */,
+				1F81561DFBDD903FEE7CE7287DA4C8EB /* Pods-DocumentCamera_Tests-resources.sh */,
+				E30ACB6905A0CC9B44A8BC6D3FCBB23F /* Pods-DocumentCamera_Tests-umbrella.h */,
+				2FFE24BF376A65350267D64DAAFCAC12 /* Pods-DocumentCamera_Tests.debug.xcconfig */,
+				8A48775DF449D1FADA3B091BFA66E938 /* Pods-DocumentCamera_Tests.release.xcconfig */,
+			);
+			name = "Pods-DocumentCamera_Tests";
+			path = "Target Support Files/Pods-DocumentCamera_Tests";
+			sourceTree = "<group>";
+		};
+		A437085B8371654F0AE754110E21F2EC /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				515B85DCD19F7B0308CEE1BDB43F996C /* Pods-DocumentCamera_Example */,
+				90EA7190DFCFB9D4CD2491218607710A /* Pods-DocumentCamera_Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		AF2E544DECE67D4F3C55703D46FEC05A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				83436B3FC4785C671FC42CD95007C76A /* DocumentCamera.framework */,
+				0405828F95CBE24F885E921E5B551B55 /* Pods_DocumentCamera_Example.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		3D8092735812D5631E3E03FB8819084A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1189B6295AEBA265B1909F217D2693FD /* DocumentCamera-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B6658AF8C27EA8DC9D5C6E42B43BDA7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				76A0C6C18B174E9AB7BB8ECF134482B3 /* Pods-DocumentCamera_Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		A558CD63579B6107C537854135201284 /* DocumentCamera */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8ECC8B45049C9EC4F82633BAED0A2570 /* Build configuration list for PBXNativeTarget "DocumentCamera" */;
+			buildPhases = (
+				FBD24C6E6FF8F27471C7DEDECEFA19AE /* Sources */,
+				74626F2003F418E9961549D556AC5EF2 /* Frameworks */,
+				3D8092735812D5631E3E03FB8819084A /* Headers */,
+				467731321F0E7588006DA238 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DocumentCamera;
+			productName = DocumentCamera;
+			productReference = 83436B3FC4785C671FC42CD95007C76A /* DocumentCamera.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		AE7997AA6AB4B77ABC54EFCE0C013826 /* Pods-DocumentCamera_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 35A273543B06343D2C85DB5DD4FFC8F2 /* Build configuration list for PBXNativeTarget "Pods-DocumentCamera_Example" */;
+			buildPhases = (
+				7C3A7D5CF1E51475575650EE57FD949B /* Sources */,
+				1C65C0E5C16BBD5137E00557A4E4B985 /* Frameworks */,
+				4B6658AF8C27EA8DC9D5C6E42B43BDA7 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5D75039CF0D25865E6036692849CC25C /* PBXTargetDependency */,
+			);
+			name = "Pods-DocumentCamera_Example";
+			productName = "Pods-DocumentCamera_Example";
+			productReference = 0405828F95CBE24F885E921E5B551B55 /* Pods_DocumentCamera_Example.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0700;
+				TargetAttributes = {
+					A558CD63579B6107C537854135201284 = {
+						LastSwiftMigration = 0830;
+					};
+				};
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = AF2E544DECE67D4F3C55703D46FEC05A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A558CD63579B6107C537854135201284 /* DocumentCamera */,
+				AE7997AA6AB4B77ABC54EFCE0C013826 /* Pods-DocumentCamera_Example */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		467731321F0E7588006DA238 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				467731451F0E773D006DA238 /* DocumentCamera.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7C3A7D5CF1E51475575650EE57FD949B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C7A663AE97BE72F1A3A4101C282FA38 /* Pods-DocumentCamera_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FBD24C6E6FF8F27471C7DEDECEFA19AE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4677313E1F0E773D006DA238 /* DocumentCameraFactory.swift in Sources */,
+				467731431F0E773D006DA238 /* ShutterButton.swift in Sources */,
+				46423DEA1F0E911000BD5E1C /* DocumentCameraDelegate.swift in Sources */,
+				9C9570F3CDEF134D900C8BCBDD0BCA72 /* DocumentCamera-dummy.m in Sources */,
+				4677313F1F0E773D006DA238 /* Camera.swift in Sources */,
+				467731441F0E773D006DA238 /* CameraViewController.swift in Sources */,
+				467731411F0E773D006DA238 /* PreviewView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5D75039CF0D25865E6036692849CC25C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = DocumentCamera;
+			target = A558CD63579B6107C537854135201284 /* DocumentCamera */;
+			targetProxy = A3E1EDCF21484E2935A9798497AE17C3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		004457F28259F587A3C5D90993D2B098 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 51A823DC0B712CE79F97F03E11F73B29 /* DocumentCamera.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/DocumentCamera/DocumentCamera-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/DocumentCamera/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/DocumentCamera/DocumentCamera.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = DocumentCamera;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		717E77604BFBB04BEAF56608A1CB2EDE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A6A03C9B1314C05BD3C2FBD3F65EDF83 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		BC62C1C7AAE23A0A7658910D76DE8661 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 81EB0A495139796DDE53F3AF2FD01BEF /* Pods-DocumentCamera_Example.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-DocumentCamera_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-DocumentCamera_Example/Pods-DocumentCamera_Example.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_DocumentCamera_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C4A921FC0455A560C5A785EFBD61206E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 51A823DC0B712CE79F97F03E11F73B29 /* DocumentCamera.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/DocumentCamera/DocumentCamera-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/DocumentCamera/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/DocumentCamera/DocumentCamera.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = DocumentCamera;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F8FA5EFF7F06CD46D3D9D473DB71D5E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 105E627562EFE8FA6BD19940324A437D /* Pods-DocumentCamera_Example.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-DocumentCamera_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-DocumentCamera_Example/Pods-DocumentCamera_Example.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_DocumentCamera_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A6A03C9B1314C05BD3C2FBD3F65EDF83 /* Debug */,
+				717E77604BFBB04BEAF56608A1CB2EDE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		35A273543B06343D2C85DB5DD4FFC8F2 /* Build configuration list for PBXNativeTarget "Pods-DocumentCamera_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8FA5EFF7F06CD46D3D9D473DB71D5E6 /* Debug */,
+				BC62C1C7AAE23A0A7658910D76DE8661 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8ECC8B45049C9EC4F82633BAED0A2570 /* Build configuration list for PBXNativeTarget "DocumentCamera" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4A921FC0455A560C5A785EFBD61206E /* Debug */,
+				004457F28259F587A3C5D90993D2B098 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
