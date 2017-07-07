@@ -20,17 +20,7 @@ class CameraViewController: UIViewController {
             self?.camera.takePicture()
         }
         
-        camera.captureAction = { [weak self] (img) in
-            guard let sself = self else { return }
-            print("Photo taken, show preview")
-            
-            sself.cameraTopView.isHidden = true
-            sself.previewTopView.isHidden = false
-            
-            sself.imagePreviewImageView.image = img
-        }
-        
-        camera.setup(withPreview: cameraPreviewView)
+        camera.setup(withPreview: cameraPreviewView, delegate: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,9 +33,8 @@ class CameraViewController: UIViewController {
         camera.stop()
     }
     
-    override open func viewDidLayoutSubviews() {
+    override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
         if let connection =  cameraPreviewView.videoPreviewLayer.connection, connection.isVideoOrientationSupported  {
             switch (UIDevice.current.orientation) {
             case .portrait:
@@ -62,10 +51,11 @@ class CameraViewController: UIViewController {
         }
     }
     
+    // MARK:
+    
     @IBAction func closeAction(_ sender: Any) {
         delegate?.docCameraDidClose(self)
     }
-    
     
     @IBAction func torchAction(_ sender: Any) {
     }
@@ -75,19 +65,18 @@ class CameraViewController: UIViewController {
         previewTopView.isHidden = true
     }
     
-    
     @IBAction func usePhotoAction(_ sender: Any) {
         delegate?.docCamera(self, didTake: imagePreviewImageView.image!)
     }
     
     
+    // MARK:
     private func updatePreviewLayer(layer: AVCaptureConnection, orientation: AVCaptureVideoOrientation) {
         layer.videoOrientation = orientation
         cameraPreviewView.frame = self.view.bounds
     }
-
-
-    var camera = Camera()
+    
+    // MARK:
     
     @IBOutlet weak var cameraTopView: UIView!
     @IBOutlet weak var previewTopView: UIView!
@@ -97,5 +86,39 @@ class CameraViewController: UIViewController {
     @IBOutlet weak var torchButton: UIButton!
     
     @IBOutlet weak var imagePreviewImageView: UIImageView!
+    
+    // MARK:
+    
+    private var camera = Camera()
+}
+
+extension CameraViewController: CameraDelegate {
+    
+    func checkAccess(checkAccess completion: @escaping (Bool) -> Void) {
+        if let delegate = delegate {
+            delegate.docCamera(self, checkAccess: completion)
+        } else {
+            completion(false)
+        }
+    }
+    
+    func didTakePhoto(_ photo: UIImage) {
+        cameraTopView.isHidden = true
+        previewTopView.isHidden = false
+        imagePreviewImageView.image = photo
+    }
+    
+    func logError(_ error: DocumentCameraError) {
+        delegate?.docCamera(self, logError: error)
+    }
+    
+    func accessDenied() {
+        delegate?.docCameraAccessDenied(self)
+    }
+    
+    func configurationFailed() {
+        delegate?.docCameraConfigurationError(self)
+    }
+
 }
 

@@ -54,12 +54,13 @@ extension ViewController: DocumentCameraDelegate {
         dismiss(animated: true, completion: nil)
     }
     
-    func docCamera(_ camera: UIViewController, setupError error: Error) {
-        print("Camera setup error: \(error)")
+    func docCameraConfigurationError(_ camera: UIViewController) {
+    
     }
     
-    func docCamera(_ camera: UIViewController, captureError error: Error) {
-        print("Camera capture error: \(error)")
+    func docCameraAccessDenied(_ camera: UIViewController) {
+    
     }
+
 }
 

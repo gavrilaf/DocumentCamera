@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+public enum DocumentCameraError: Error {
+    case configurationError(reason: String)
+    case captureError(reason: String)
+}

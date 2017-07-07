@@ -17,6 +17,7 @@
 		467731431F0E773D006DA238 /* ShutterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4677313B1F0E773D006DA238 /* ShutterButton.swift */; };
 		467731441F0E773D006DA238 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4677313C1F0E773D006DA238 /* CameraViewController.swift */; };
 		467731451F0E773D006DA238 /* DocumentCamera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4677313D1F0E773D006DA238 /* DocumentCamera.storyboard */; };
+		46F1336A1F0F8CB7009A65FE /* DocumentCameraError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F133691F0F8CB7009A65FE /* DocumentCameraError.swift */; };
 		6C7A663AE97BE72F1A3A4101C282FA38 /* Pods-DocumentCamera_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 104DE138E8CB71C7A7F8BBC6D993438C /* Pods-DocumentCamera_Example-dummy.m */; };
 		76A0C6C18B174E9AB7BB8ECF134482B3 /* Pods-DocumentCamera_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8432D5D39938922F3C8AA358B1EBF91C /* Pods-DocumentCamera_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9C9570F3CDEF134D900C8BCBDD0BCA72 /* DocumentCamera-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBF5ABF1121761759C01DE40A27A49B /* DocumentCamera-dummy.m */; };
@@ -51,6 +52,7 @@
 		4677313B1F0E773D006DA238 /* ShutterButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShutterButton.swift; sourceTree = "<group>"; };
 		4677313C1F0E773D006DA238 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		4677313D1F0E773D006DA238 /* DocumentCamera.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DocumentCamera.storyboard; sourceTree = "<group>"; };
+		46F133691F0F8CB7009A65FE /* DocumentCameraError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentCameraError.swift; sourceTree = "<group>"; };
 		47F22D254BC990D7DFC3645CB96C9BF0 /* Pods-DocumentCamera_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-DocumentCamera_Example.modulemap"; sourceTree = "<group>"; };
 		50F5519EB8676F8BB779FE93DCE1F9D4 /* Pods-DocumentCamera_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DocumentCamera_Example-frameworks.sh"; sourceTree = "<group>"; };
 		51A823DC0B712CE79F97F03E11F73B29 /* DocumentCamera.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DocumentCamera.xcconfig; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				46423DE91F0E911000BD5E1C /* DocumentCameraDelegate.swift */,
 				467731351F0E773D006DA238 /* DocumentCameraFactory.swift */,
 				467731361F0E773D006DA238 /* Impl */,
+				46F133691F0F8CB7009A65FE /* DocumentCameraError.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				9C9570F3CDEF134D900C8BCBDD0BCA72 /* DocumentCamera-dummy.m in Sources */,
 				4677313F1F0E773D006DA238 /* Camera.swift in Sources */,
 				467731441F0E773D006DA238 /* CameraViewController.swift in Sources */,
+				46F1336A1F0F8CB7009A65FE /* DocumentCameraError.swift in Sources */,
 				467731411F0E773D006DA238 /* PreviewView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

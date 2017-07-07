@@ -37,4 +37,19 @@ class PreviewView: UIView {
     override class var layerClass : AnyClass {
         return AVCaptureVideoPreviewLayer.self
     }
+    
+    func captureAnimation() {
+        videoPreviewLayer.opacity = 0
+        UIView.animate(withDuration: 0.25) { [unowned self] in
+            self.videoPreviewLayer.opacity = 1
+        }
+    }
+    
+    func fadeInAnimation() {
+    
+    }
+    
+    func fadeOutAnimation() {
+        
+    }
 }

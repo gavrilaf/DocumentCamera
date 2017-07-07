@@ -9,12 +9,42 @@
 import UIKit
 import AVFoundation
 
+protocol CameraDelegate: class {
+    func checkAccess(checkAccess completion: @escaping (Bool) -> Void)
+    func didTakePhoto(_ photo: UIImage)
+    func logError(_ error: DocumentCameraError)
+    
+    func accessDenied()
+    func configurationFailed()
+}
 
+// MARK:
 class Camera: UIView {
     
-    var captureAction: ((UIImage) -> Void)?
+    enum CameraSetupResult {
+        case success
+        case notAuthorized
+        case configurationFailed
+    }
+
+    var setupResult = CameraSetupResult.success
+    var isSessionRunning = false
     
-    func setup(withPreview preview: PreviewView) {
+    // MARK:
+    
+    func setup(withPreview preview: PreviewView, delegate: CameraDelegate) {
+        self.delegate = delegate
+        
+        sessionQueue.suspend()
+        
+        delegate.checkAccess { [weak self] (granted) in
+            if granted {
+                self?.sessionQueue.resume()
+            } else {
+                self?.setupResult = .notAuthorized
+            }
+        }
+        
         sessionQueue.async { [unowned self] in
             self.configureSession()
             self.preview = preview
@@ -22,17 +52,26 @@ class Camera: UIView {
         }
     }
     
-    
     func start() {
         deviceOrientation = UIDevice.current.orientation
         
         sessionQueue.async { [unowned self] in
-            self.addObservers()
-            self.session.startRunning()
-            self.isSessionRunning = self.session.isRunning
             
-            DispatchQueue.main.async {
-                self.preview?.videoPreviewLayer.connection?.videoOrientation = self.getPreviewLayerOrientation()
+            switch self.setupResult {
+            case .success:
+                self.addObservers()
+                self.session.startRunning()
+                self.isSessionRunning = self.session.isRunning
+                
+                DispatchQueue.main.async {
+                    self.preview?.videoPreviewLayer.connection?.videoOrientation = self.getPreviewLayerOrientation()
+                }
+                
+            case .configurationFailed:
+                self.delegate?.configurationFailed()
+                
+            case .notAuthorized:
+                self.delegate?.accessDenied()
             }
         }
     }
@@ -46,11 +85,6 @@ class Camera: UIView {
     }
     
     func takePicture() {
-        /*
-         Retrieve the video preview layer's video orientation on the main queue before
-         entering the session queue. We do this to ensure UI elements are accessed on
-         the main thread and session configuration is done on the session queue.
-         */
         let videoPreviewLayerOrientation = preview?.videoPreviewLayer.connection?.videoOrientation ?? .portrait
         
         sessionQueue.async { [weak self] in
@@ -72,16 +106,13 @@ class Camera: UIView {
     
     // MARK:
     
-    var isSessionRunning = false
-    var isSetupSuccess = true
-    
-    // MARK:
+    fileprivate weak var delegate: CameraDelegate?
+    fileprivate weak var preview: PreviewView?
     
     fileprivate let session = AVCaptureSession()
     
-    fileprivate weak var preview: PreviewView?
-    
     fileprivate let sessionQueue = DispatchQueue(label: "DocCameraSessionQueue")
+    
     fileprivate var videoDeviceInput: AVCaptureDeviceInput!
     fileprivate let photoOutput = AVCapturePhotoOutput()
     
@@ -89,7 +120,7 @@ class Camera: UIView {
     
     // MARK:
     private func configureSession() {
-        guard isSetupSuccess else { return }
+        guard setupResult == .success else { return }
         
         session.beginConfiguration()
         defer { session.commitConfiguration() }
@@ -116,8 +147,9 @@ class Camera: UIView {
                                                                    position: .back)
             }
             
-            guard let videoDevice = defaultVideoDevice  else {
-                isSetupSuccess = false
+            guard let videoDevice = defaultVideoDevice else {
+                delegate?.logError(.configurationError(reason: "Could not retrieve default device"))
+                setupResult = .configurationFailed
                 return
             }
             
@@ -128,12 +160,13 @@ class Camera: UIView {
                 
                 // Set preview orientation here
             } else {
-                print("Could not add video device input to the session")
+                delegate?.logError(.configurationError(reason: "Could not add video device input to the session"))
+                setupResult = .configurationFailed
                 return
             }
         } catch {
-            print("Could not create video device input: \(error)")
-            isSetupSuccess = false
+            delegate?.logError(.configurationError(reason: "Could not create video device input: \(error)"))
+            setupResult = .configurationFailed
             return
         }
         
@@ -143,18 +176,20 @@ class Camera: UIView {
             photoOutput.isHighResolutionCaptureEnabled = true
             photoOutput.isLivePhotoCaptureEnabled = false
         } else {
-            print("Could not add photo output to the session")
-            isSetupSuccess = false
+            delegate?.logError(.configurationError(reason: "Could not add photo output to the session"))
+            setupResult = .configurationFailed
             return
         }
     }
     
     private func addObservers() {
-        NotificationCenter.default.addObserver(self, selector: #selector(deviceDidRotate), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        let nc = NotificationCenter.default
+        
+        nc.addObserver(self, selector: #selector(deviceDidRotate), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
     }
     
     private func removeObservers() {
-        
+        NotificationCenter.default.removeObserver(self)
     }
     
     fileprivate func getPreviewLayerOrientation() -> AVCaptureVideoOrientation {
@@ -170,12 +205,19 @@ class Camera: UIView {
         }
     }
     
-    fileprivate func processPhoto(_ imageData: Data) -> UIImage {
-        let dataProvider = CGDataProvider(data: imageData as CFData)
-        let cgImageRef = CGImage(jpegDataProviderSource: dataProvider!, decode: nil, shouldInterpolate: true, intent: CGColorRenderingIntent.defaultIntent)
-        let image = UIImage(cgImage: cgImageRef!, scale: 1.0, orientation: self.getImageOrientation())
+    fileprivate func processPhoto(_ imageData: Data) {
+        guard let dataProvider = CGDataProvider(data: imageData as CFData),
+            let cgImageRef = CGImage(jpegDataProviderSource: dataProvider,
+                                     decode: nil, shouldInterpolate: true,
+                                     intent: CGColorRenderingIntent.defaultIntent)
+            else {
+                delegate?.logError(.captureError(reason: "Processing image error"))
+                return
+        }
         
-        return image
+        let image = UIImage(cgImage: cgImageRef, scale: 1.0, orientation: self.getImageOrientation())
+        
+        delegate?.didTakePhoto(image)
     }
     
     fileprivate func getImageOrientation() -> UIImageOrientation {
@@ -192,10 +234,9 @@ class Camera: UIView {
             return .right
         }
     }
-
-
-
 }
+
+// MARK:
 
 extension Camera {
     @objc fileprivate func deviceDidRotate() {
@@ -205,17 +246,14 @@ extension Camera {
     }
 }
 
+// MARK:
+
 extension Camera: AVCapturePhotoCaptureDelegate {
     
     func capture(_ captureOutput: AVCapturePhotoOutput, willBeginCaptureForResolvedSettings resolvedSettings: AVCaptureResolvedPhotoSettings) {
-        print("Start capturing animation")
         DispatchQueue.main.async { [unowned self] in
-            self.preview?.videoPreviewLayer.opacity = 0
-            UIView.animate(withDuration: 0.25) { [unowned self] in
-                self.preview?.videoPreviewLayer.opacity = 1
-            }
+            self.preview?.captureAnimation()
         }
-
     }
     
     func capture(_ captureOutput: AVCapturePhotoOutput,
@@ -226,15 +264,22 @@ extension Camera: AVCapturePhotoCaptureDelegate {
                  error: Error?) {
         
         if let error = error {
-            print("Error capturing photo: \(error)")
+            delegate?.logError(.captureError(reason: "Error capturing photo: \(error)"))
         } else {
-            let imageData = AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer: photoSampleBuffer!,
-                                                                             previewPhotoSampleBuffer: previewPhotoSampleBuffer)
-            let image = self.processPhoto(imageData!)
             
-            self.captureAction?(image)
+            guard let sampleBuffer = photoSampleBuffer else {
+                delegate?.logError(.captureError(reason: "photoSampleBuffer is nil"))
+                return
+            }
             
+            guard let imageData = AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer: sampleBuffer,
+                                                                                   previewPhotoSampleBuffer: previewPhotoSampleBuffer)
+                else {
+                    delegate?.logError(.captureError(reason: "Processing image error"))
+                    return
+            }
             
+            self.processPhoto(imageData)
         }
     }
 }
