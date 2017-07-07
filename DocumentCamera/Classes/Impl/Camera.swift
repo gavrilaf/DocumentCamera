@@ -12,6 +12,9 @@ import AVFoundation
 protocol CameraDelegate: class {
     func checkAccess(checkAccess completion: @escaping (Bool) -> Void)
     func didTakePhoto(_ photo: UIImage)
+    
+    func sessionStateDidChange(running: Bool)
+    
     func logError(_ error: DocumentCameraError)
     
     func accessDenied()
@@ -118,6 +121,8 @@ class Camera: UIView {
     
     fileprivate var deviceOrientation: UIDeviceOrientation?
     
+    fileprivate var sessionRunningObserveContext = 0
+    
     // MARK:
     private func configureSession() {
         guard setupResult == .success else { return }
@@ -182,13 +187,25 @@ class Camera: UIView {
         }
     }
     
+    
+    
     private func addObservers() {
         let nc = NotificationCenter.default
         
+        session.addObserver(self, forKeyPath: "running", options: .new, context: &sessionRunningObserveContext)
+        
         nc.addObserver(self, selector: #selector(deviceDidRotate), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        
+        nc.addObserver(self, selector: #selector(subjectAreaDidChange), name: .AVCaptureDeviceSubjectAreaDidChange,
+                       object: videoDeviceInput.device)
+        
+        nc.addObserver(self, selector: #selector(sessionRuntimeError), name: .AVCaptureSessionRuntimeError, object: session)
+        nc.addObserver(self, selector: #selector(sessionWasInterrupted), name: .AVCaptureSessionWasInterrupted, object: session)
+        nc.addObserver(self, selector: #selector(sessionInterruptionEnded), name: .AVCaptureSessionInterruptionEnded, object: session)
     }
     
     private func removeObservers() {
+        session.removeObserver(self, forKeyPath: "running", context: &sessionRunningObserveContext)
         NotificationCenter.default.removeObserver(self)
     }
     
@@ -239,10 +256,53 @@ class Camera: UIView {
 // MARK:
 
 extension Camera {
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?,
+                               change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if context == &sessionRunningObserveContext {
+            let newValue = change?[.newKey] as AnyObject?
+            guard let isSessionRunning = newValue?.boolValue else { return }
+            
+            delegate?.sessionStateDidChange(running: isSessionRunning)
+            
+        } else {
+            super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
+        }
+    }
+
     @objc fileprivate func deviceDidRotate() {
         if !UIDevice.current.orientation.isFlat {
             self.deviceOrientation = UIDevice.current.orientation
         }
+    }
+    
+    @objc func subjectAreaDidChange(notification: NSNotification) {
+        //let devicePoint = CGPoint(x: 0.5, y: 0.5)
+        //focus(with: .autoFocus, exposureMode: .continuousAutoExposure, at: devicePoint, monitorSubjectAreaChange: false)
+    }
+    
+    @objc func sessionRuntimeError(notification: NSNotification) {
+        guard let errorValue = notification.userInfo?[AVCaptureSessionErrorKey] as? NSError else {
+            return
+        }
+        
+        let error = AVError(_nsError: errorValue)
+        if error.code == .mediaServicesWereReset {
+            sessionQueue.async { [unowned self] in
+                if self.isSessionRunning {
+                    self.session.startRunning()
+                    self.isSessionRunning = self.session.isRunning
+                }
+            }
+        }
+    }
+    
+    @objc func sessionWasInterrupted(notification: NSNotification) {
+    
+    }
+    
+    @objc func sessionInterruptionEnded(notification: NSNotification) {
+        
     }
 }
 

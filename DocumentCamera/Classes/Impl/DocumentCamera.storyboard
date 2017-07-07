@@ -31,15 +31,21 @@
                                         <rect key="frame" x="0.0" y="567" width="375" height="80"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xX-Rs-Njc" userLabel="Retake">
-                                                <rect key="frame" x="20" y="25" width="47" height="30"/>
-                                                <state key="normal" title="Retake"/>
+                                                <rect key="frame" x="20" y="20.5" width="68" height="39"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <state key="normal" title="Retake">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="retakeAction:" destination="eWK-rT-OaZ" eventType="touchUpInside" id="x08-sQ-iNg"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1e3-zI-07R" userLabel="Use">
-                                                <rect key="frame" x="325" y="25" width="30" height="30"/>
-                                                <state key="normal" title="Use"/>
+                                                <rect key="frame" x="316" y="20.5" width="39" height="39"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <state key="normal" title="Use">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="usePhotoAction:" destination="eWK-rT-OaZ" eventType="touchUpInside" id="04K-iE-KAT"/>
                                                 </connections>
@@ -125,7 +131,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="j6u-Wi-eW0" firstAttribute="leading" secondItem="NpW-tb-mmJ" secondAttribute="leading" id="2Df-2w-O91"/>
                             <constraint firstItem="jdU-cS-2zX" firstAttribute="leading" secondItem="NpW-tb-mmJ" secondAttribute="leading" id="2mC-OZ-KBm"/>
@@ -142,8 +148,10 @@
                         <outlet property="cameraTopView" destination="jdU-cS-2zX" id="eqo-60-pJB"/>
                         <outlet property="imagePreviewImageView" destination="Ukr-ZE-V5P" id="EpJ-bK-wJX"/>
                         <outlet property="previewTopView" destination="j6u-Wi-eW0" id="5OQ-RD-ftT"/>
+                        <outlet property="retakeButton" destination="6xX-Rs-Njc" id="P7p-Cl-FfN"/>
                         <outlet property="shutterButton" destination="VG3-2W-CtK" id="cKf-0q-qi7"/>
                         <outlet property="torchButton" destination="Hsz-i3-eaf" id="D2w-Zm-dO0"/>
+                        <outlet property="useButton" destination="1e3-zI-07R" id="uWV-oh-VlU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hqM-RY-qtn" sceneMemberID="firstResponder"/>

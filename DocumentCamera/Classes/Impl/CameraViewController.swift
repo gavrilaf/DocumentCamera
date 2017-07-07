@@ -20,6 +20,11 @@ class CameraViewController: UIViewController {
             self?.camera.takePicture()
         }
         
+        if let delegate = delegate {
+            useButton.titleLabel?.text = delegate.docCameraUseButtonTitle(self)
+            retakeButton.titleLabel?.text = delegate.docCameraRetakeButtonTitle(self)
+        }
+        
         camera.setup(withPreview: cameraPreviewView, delegate: self)
     }
     
@@ -86,9 +91,10 @@ class CameraViewController: UIViewController {
     @IBOutlet weak var torchButton: UIButton!
     
     @IBOutlet weak var imagePreviewImageView: UIImageView!
+    @IBOutlet weak var retakeButton: UIButton!
+    @IBOutlet weak var useButton: UIButton!
     
     // MARK:
-    
     private var camera = Camera()
 }
 
@@ -106,6 +112,11 @@ extension CameraViewController: CameraDelegate {
         cameraTopView.isHidden = true
         previewTopView.isHidden = false
         imagePreviewImageView.image = photo
+    }
+    
+    func sessionStateDidChange(running: Bool) {
+        // disable shutter button
+        print("sessionStateDidChange running(\(running))")
     }
     
     func logError(_ error: DocumentCameraError) {
